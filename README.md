@@ -6,7 +6,7 @@
 **2. Get the file HARTOOLS.har onto the device you want to run devtools xss on**
 **3. on the device you want to run devtools xss on go to `devtools://devtools/bundled/inspector.html?experiments=true`**
 **4. On the sidebar on the inspector page at the top click the 2 arrows (looks like: `>>`) and select network from the dropdown**
-     ^ if you are already on the network tab you can skip this step ^
+     **^ if you are already on the network tab you can skip this step ^**
 
 ## Terminology
 - Entry
