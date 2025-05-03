@@ -84,7 +84,7 @@
                         w.close();
                         return;
                     }
-                    const url = await writeFile('index.html', `${atob('j')}`;
+                    const url = await writeFile('index.html', `${atob('PGhlYWQ+CjxzY3JpcHQ+CmFsZXJ0KCJ0ZXN0Iik7Cjwvc2NyaXB0Pgo8L2hlYWQ+')}`;
                     w.chrome.tabs.create({ url });
                     w.close();
                     cleanup();
