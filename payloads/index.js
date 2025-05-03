@@ -873,17 +873,20 @@ class HostPermissions {
 }
 
 function createExtensionCard(name, id, enabled, icon_url) {
-    const li = document.createElement("li");
-    li.className = "extension-card";
-    li.innerHTML = `
-      <img class="extension-icon" src="${icon_url}"/>
-      <span class="extension-name">${name} <litstuff> ${id}</litstuff></span>
-      <label class="toggle-switch">
-          <input type="checkbox" ${enabled ? "checked" : ""}>
-          <span class="slider"></span>
-      </label>
+  const li = document.createElement("li");
+  li.className = "extension-card";
+  li.innerHTML = `
+    <div class="extension-header">
+      <img class="extension-icon" src="${icon_url}" alt="Extension Icon">
+      <div class="extension-name">${name}</div>
+    </div>
+    <div class="extension-id">${id}</div>
+    <label class="toggle-switch">
+      <input type="checkbox" ${enabled ? "checked" : ""}>
+      <span class="slider"></span>
+    </label>
   `;
-    return li;
+  return li;
 }
 
 function createExtensionCardAll(enabled = true) {
@@ -1100,7 +1103,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   text-align: center;
   transition: background-color 0.3s ease, border-color 0.3s ease;
 }
@@ -1111,17 +1114,33 @@ ul {
   border: 1px solid #fff;
 }
 
+.extension-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
 .extension-icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 10px;
+  width: 32px;
+  height: 32px;
+  flex-shrink: 0;
   cursor: pointer;
 }
 
 .extension-name {
   font-weight: bold;
-  margin-top: 5px;
   font-size: 14px;
+  text-align: left;
+}
+
+.extension-id {
+  font-size: 12px;
+  color: #888;
+  word-break: break-word;
+  margin-top: 4px;
+  text-align: center;
 }
 
 .toggle-switch {
