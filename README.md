@@ -1,7 +1,7 @@
 <p align=center><img src="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/hartools.gif"/>
 # <p align=center><code>Extension/Devtools code execution post-rigtools patch</code></p> 
-## How to use
 
+## How to use
 **1. Download [HARTOOLS.har](https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/HARTOOLS.har)**\
 **2. Get the file `HARTOOLS.har` onto the device you want to run devtools xss on**\
 **3. On the device you want to run devtools xss on go to `devtools://devtools/bundled/inspector.html?experiments=true`**\
