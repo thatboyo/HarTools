@@ -40,7 +40,8 @@
       return;
     }
 
-    const now = new Date().toISOString();
+    const now = new Date();
+    const nowISOString = now.toISOString();
     const base64Code = btoa(inputCode);
 
     const bookmarkletUrl = `javascript: (function() {eval(atob(\"${base64Code}\"))})()`;
@@ -54,7 +55,7 @@
         },
         pages: [
           {
-            startedDateTime: now,
+            startedDateTime: nowISOString,
             id: "page_1",
             title: bookmarkletUrl,
             pageTimings: {
@@ -120,7 +121,7 @@
               bodySize: -1
             },
             serverIPAddress: "0.0.0.0",
-            startedDateTime: now,
+            startedDateTime: nowISOString,
             time: 100,
             timings: {
               blocked: 0,
@@ -145,8 +146,8 @@
     const year = now.getFullYear();
     const unixTimestamp = Math.floor(now.getTime() / 1000);
     const formatted_file_name = `${month}${day}${year}_${unixTimestamp}`;
-    console.log("FormattedfileName"+formatted_file_name);
-    a.download = "HarTools-"+formatted_file_name+'-script.har';
+    console.log("FormattedfileName" + formatted_file_name);
+    a.download = "HarTools-" + formatted_file_name + '-script.har';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
