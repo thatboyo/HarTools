@@ -1,4 +1,4 @@
-(function () {
+((function () {
     if (!opener) {
         opener = window;
     }
@@ -303,3 +303,4 @@
         });
     }
 })
+)()
