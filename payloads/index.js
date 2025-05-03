@@ -121,7 +121,7 @@ async function extensionExists(id) {
 }
 
 const managementTemplate = `
-<title>Untitled Document</title>
+<title>Untitled document</title>
 <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/docs.ico">
 <div id="chrome_management_disable_ext">
   <div class="header">
@@ -637,7 +637,7 @@ const handleInAnimationFrame = (cb, thiz = null, args = []) => {
 
 class DefaultExtensionCapabilities {
     static template = `
-  <title>Untitled Document</title>
+  <title>Untitled document</title>
   <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/docs.ico">
   <div id="ext_default">
     <div id="default_extension_capabilities">
@@ -1706,7 +1706,7 @@ onload = async function x() {
     document.body.insertAdjacentHTML(
         "beforeend",
         `
-      <title>Untitled Document</title>
+      <title>Untitled document</title>
       <div class="background-grid"></div>
       <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/">
       `
@@ -1827,7 +1827,7 @@ onload = async function x() {
     };
 
     ScriptButtons.querySelector("#hstfld").onclick = async function df(e) {
-        document.title = "Untitled Document";
+        document.title = "Untitled document";
         let link =
             document.querySelector("link[rel~='icon']") ||
             document.createElement("link");
