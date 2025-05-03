@@ -9,7 +9,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;**^^^ if you are already on the network page you can skip this ^^^**\
 **5. Click the little upload button and select the downloaded HARTOOLS.HAR**\
 &nbsp;&nbsp;&nbsp;&nbsp;**^^^ you may need to expand the sidebar to see it ^^^**\
-**6. Double click on the text that appears in the box**\
+**6. Double click on the text that appears in the box**
 
 ## Credits
  - Crossjbly: Finding the vulnerability in .har files
