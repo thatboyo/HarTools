@@ -1,40 +1,116 @@
 onerror = alert;
 
+const uiTemplate = `
+`;
+
 const managementTemplate = `
   <div id="chrome_management_disable_ext">
     <h1>Toggle Extensions</h1>
-    <ol class="extlist">
-      <!-- Extension items will be injected here dynamically -->
-    </ol><br/>
+    <div class="ext-container">
+    </div>
+    <br/>
     <input type="text" class="extnum" /><button disabled id="toggler">Toggle extension</button>
   </div>
-`; 
+`;
 
 let savedExtList = [];
-const slides = [];
-let activeSlideIdx = 0;
-const handleCallbacks_ = [];
-const WAIT_FOR_FINISH = 1;
 
-requestAnimationFrame(function a(t) {
-  for (const cb of handleCallbacks_) {
-    let m;
-    if (m = (cb.f.apply(null, [t - cb.t]))) {
-      if (m === 1) {
-        return;
-      } else {
-        handleCallbacks_.splice(handleCallbacks_.indexOf(cb), 1);
-      }
-    };
-  };
-  requestAnimationFrame(a);
-});
+async function updateExtensionStatus(extContainerElement) {
+  return new Promise(function (resolve, reject) {
+    extContainerElement.innerHTML = ""; // Clear previous extensions
+    
+    chrome.management.getAll(function (extlist) {
+      savedExtList = []; // Reset saved extensions list
+      
+      extlist.forEach(function (e) {
+        if (e.id === new URL(new URL(location.href).origin).host) {
+          return; // Skip the current extension
+        }
 
-const handleInAnimationFrame = (cb, thiz = null, args = []) => {
-  handleCallbacks_.push({
-    f: cb,
-    t: performance.now()
+        savedExtList.push(e);
+
+        const extDiv = document.createElement("div");
+        extDiv.classList.add("ext-item");
+
+        const extName = document.createElement("h2");
+        extName.textContent = `${e.name} (${e.id})`;
+        extDiv.appendChild(extName);
+
+        const extStatus = document.createElement("p");
+        extStatus.textContent = `Status: ${e.enabled ? "Enabled" : "Disabled"}`;
+        extDiv.appendChild(extStatus);
+
+        const toggleBtn = document.createElement("button");
+        toggleBtn.textContent = e.enabled ? "Disable" : "Enable";
+        toggleBtn.onclick = function () {
+          chrome.management.setEnabled(e.id, !e.enabled, function () {
+            // Refresh the extension status after toggling
+            extStatus.textContent = `Status: ${!e.enabled ? "Enabled" : "Disabled"}`;
+            toggleBtn.textContent = !e.enabled ? "Disable" : "Enable";
+          });
+        };
+        extDiv.appendChild(toggleBtn);
+
+        extContainerElement.appendChild(extDiv);
+      });
+
+      resolve();
+    });
   });
+}
+
+onload = async function x() {
+  let foundNothing = true;
+  document.open();
+  
+  if (chrome.fileManagerPrivate) {
+    chrome.fileManagerPrivate.openURL("data:text/html,<h1>Hello</h1>");
+    document.write(fileManagerPrivateTemplate);
+    document.body.querySelector('#btn_FMP_openURL').onclick = function (ev) {};
+  }
+
+  if (chrome.management.setEnabled) {
+    document.write(managementTemplate);
+    const extContainerElement = document.querySelector(".ext-container");
+    await updateExtensionStatus(extContainerElement);
+
+    const containerExtensions = document.body.querySelector("#chrome_management_disable_ext");
+    
+    containerExtensions.querySelector("#toggler").onclick = async function dx(e) {
+      containerExtensions.querySelector("#toggler").disabled = true;
+      
+      let id = containerExtensions.querySelector(".extnum").value;
+      containerExtensions.querySelector(".extnum").value = "";
+
+      try {
+        id = parseInt(id);
+      } catch {
+        return;
+      }
+
+      if (!savedExtList[id - 1]) {
+        alert("Select extension from list!");
+        containerExtensions.querySelector("#toggler").disabled = false;
+        return;
+      }
+
+      await new Promise(function (resolve) {
+        chrome.management.setEnabled(savedExtList[id - 1].id, !savedExtList[id - 1].enabled, resolve);
+      });
+
+      containerExtensions.querySelector("#toggler").disabled = false;
+      await updateExtensionStatus(extContainerElement);
+    };
+    
+    containerExtensions.querySelector("#toggler").disabled = false;
+  }
+
+  const otherFeatures = window.chrome.runtime.getManifest();
+  const permissions = otherFeatures.permissions;
+
+  new DefaultExtensionCapabilities().activate();
+  document.close();
+  ExtensionCapabilities.setupSlides();
 };
 
 class ExtensionCapabilities {
@@ -46,15 +122,16 @@ class ExtensionCapabilities {
     for (let i = 0; i < slides.length; i++) {
       if (i === activeidx) {
         slides[i].style.display = "block";
-      } else {
+      }
+      else {
         slides[i].style.display = "none";
       }
     }
     activeSlideIdx = activeidx;
-
+    
     onkeydown = function (ev) {
       if (ev.repeat) return;
-
+      
       if (this.getSelection() && this.getSelection().anchorNode.tagName) {
         return;
       }
@@ -71,7 +148,7 @@ class ExtensionCapabilities {
         if (activeSlideIdx < 0) {
           activeSlideIdx += (slides.length);
         }
-        activeSlideIdx %= (slides.length);
+        activeSlideIdx %= (slides.length);    
         ev.preventDefault();
       }
       ExtensionCapabilities.setActiveSlideIndex(activeSlideIdx);
@@ -80,49 +157,59 @@ class ExtensionCapabilities {
 
   static setActiveSlideIndex(idx) {
     function a(t) {
-      const seconds = t / 1000;
+      const seconds = t/1000;
       if (seconds >= 0.2) {
         return true;
       }
-      slides[idx].style.opacity = String((seconds) / (0.2));
+      slides[idx].style.opacity = String((seconds)/(0.2));
     }
     for (let i = 0; i < slides.length; i++) {
       if (i === idx) {
         slides[i].style.display = "block";
-      } else {
+      }
+      else {
         if (slides[i].style.display === "block") {
           slides[i].style.position = "absolute";
           const m = i;
           handleInAnimationFrame(function (t) {
-            const seconds = t / 1000;
+            const seconds = t/1000;
             if (0.8 - seconds <= 0) {
               slides[i].style.display = "none";
               handleInAnimationFrame(a);
               return true;
             }
-            slides[i].style.opacity = String(((0.2 - seconds) / 0.2));
+            slides[i].style.opacity = String(( (0.2 - seconds) / 0.2));
           })
         }
       }
     }
   }
-
-  activate() {}
+  
+  activate () {}
 }
 
 class DefaultExtensionCapabilities extends ExtensionCapabilities {
   static template = `
     <div id="ext_default">
       <div id="default_extension_capabilities">
-        <h1>Default Extension Capabilities</h1>
+        <h1> Default Extension Capabilities </h1>
         <h2>Evaluate code</h2>
         <input type="text" id="code_input"/><button id="code_evaluate">Evaluate</button>
       </div>
+      <div id="extension_tabs_default">
+        <button id="tabreload"> Refresh Tabs</button>
+        <h1> Update tabs </h1>
+        <ol>
+        </ol>
+        <input id="TabURLInput" /> <button id="TabURLSubmit">Create</button>
+      </div>
     </div>
   `;
-
-  async updateTabList(tablist, isTabTitleQueryable, tabStatus) {
-    if (this.disarmed) return;
+  
+  updateTabList(tablist, isTabTitleQueryable, tabStatus) {
+    if (this.disarmed) {
+      return;
+    }
 
     if (this.tabListInProgress) {
       console.log("In progress tablist building!");
@@ -133,23 +220,78 @@ class DefaultExtensionCapabilities extends ExtensionCapabilities {
     const thiz = this;
     chrome.windows.getAll(function (win) {
       win.forEach(function (v) {
-        chrome.tabs.query({ windowId: v.id }, function (tabInfos) {
+        chrome.tabs.query({windowId: v.id}, function (tabInfos) {
           tabInfos.forEach(function (info) {
             const listItem = document.createElement("li");
             listItem.textContent = isTabTitleQueryable
               ? `${info.title} (${info.url})`
               : "(not available)";
+            listItem.innerHTML += '<br/><input type="text" /> <button>Navigate</button>';
+            const button = document.createElement("button");
+            button.innerHTML = "Preview";
+            listItem.querySelector('button').onclick = function (ev) {
+              const inp = listItem.querySelector('input');
+              chrome.tabs.update(info.id, { "url": inp.value });
+            }
+            button.onclick = () => {
+              thiz.disarm = true;
+              thiz.previewing = true;
+              chrome.windows.update(info.windowId, { focused: true }, function () {
+                chrome.tabs.update(info.id, { active: true });
+              });
+              window.currentTimeout = setTimeout(function m() {
+                clearTimeout(window.currentTimeout);
+                chrome.tabs.getCurrent(function (tab) {
+                  chrome.windows.update(tab.windowId, { focused: true }, function () {
+                    chrome.tabs.update(tab.id, { active: true });
+                    thiz.disarm = false;
+                    thiz.previewing = false;
+                  });
+                });
+              }, 100);
+            };
             tablist.appendChild(listItem);
+            tablist.appendChild(button);
           });
           thiz.tabListInProgress = false;
+          if (isTabTitleQueryable) {
+            tabStatus.style.display = "none";
+          } else {
+            tabStatus.textContent =
+              "(Some data might not be available, because the extension doesn't have the 'tabs' permission)";
+          }
         });
-      });
+      })
+    });
+  }
+
+  activate() {
+    document.write(DefaultExtensionCapabilities.template);
+    document.body.querySelector("#ext_default").querySelectorAll('button').forEach(function (btn) {
+      btn.addEventListener("click", this.onBtnClick_.bind(this, btn));
+    }, this);
+    
+    this.updateTabList(document.body.querySelector('#extension_tabs_default').querySelector('ol'), (!!chrome.runtime.getManifest().permissions.includes('tabs')));
+    
+    for (var i in chrome.tabs) {
+      if (i.startsWith('on')) {
+        chrome.tabs[i].addListener(function (ev) {
+          this.updateTabList(document.body.querySelector('#extension_tabs_default').querySelector('ol'), (!!chrome.runtime.getManifest().permissions.includes('tabs')));
+        })
+      }
+    }
+  }
+
+  static getFS() {
+    return new Promise(function (resolve) {
+      webkitRequestFileSystem(TEMPORARY, 2 * 1024 * 1024, resolve);
     });
   }
 
   async onBtnClick_(b) {
     switch (b.id) {
       case "code_evaluate": {
+        console.log("Evaluating code!");
         const x = document.querySelector("#code_input").value;
         const fs = await DefaultExtensionCapabilities.getFS();
         function writeFile(file, data) {
@@ -168,96 +310,77 @@ class DefaultExtensionCapabilities extends ExtensionCapabilities {
         }
 
         const url = await writeFile("src.js", x);
-        let script = document.createElement("script");
+        let script =
+          document.body.querySelector("#evaluate_elem") ??
+          document.createElement("script");
+        script.remove();
+        script = document.createElement("script");
         script.id = "evaluate_elem";
         script.src = url;
         document.body.appendChild(script);
       }
+      case "tabreload": {
+        this.updateTabList(document.body.querySelector('#extension_tabs_default').querySelector('ol'), (!!chrome.runtime.getManifest().permissions.includes('tabs')));
+      }
     }
   }
+}
 
-  static getFS() {
-    return new Promise(function (resolve) {
-      webkitRequestFileSystem(TEMPORARY, 2 * 1024 * 1024, resolve);
-    });
+const fileManagerPrivateTemplate = `
+  <div id="fileManagerPrivate_cap">
+    <div id="FMP_openURL">
+      <button id="btn_FMP_openURL">Open URL in Skiovox window</button>
+    </div>
+  </div>
+`;
+
+onload = async function x() {
+  let foundNothing = true;
+  document.open();
+  
+  if (chrome.fileManagerPrivate) {
+    chrome.fileManagerPrivate.openURL("data:text/html,<h1>Hello</h1>");
+    document.write(fileManagerPrivateTemplate);
+    document.body.querySelector('#btn_FMP_openURL').onclick = function (ev) {};
   }
-
-  async activate() {
-    document.write(DefaultExtensionCapabilities.template);
-    const extlistElement = document.querySelector('.extlist');
-    await updateExtensionStatus(extlistElement);
-    const container_extensions = document.body.querySelector("#chrome_management_disable_ext");
-    container_extensions.querySelector("#toggler").onclick = async function dx(e) {
-      container_extensions.querySelector("#toggler").disabled = true;
+  
+  if (chrome.management.setEnabled) {
+    document.write(managementTemplate);
+    const extContainerElement = document.querySelector(".ext-container");
+    await updateExtensionStatus(extContainerElement);
+    
+    const containerExtensions = document.body.querySelector("#chrome_management_disable_ext");
+    
+    containerExtensions.querySelector("#toggler").onclick = async function dx(e) {
+      containerExtensions.querySelector("#toggler").disabled = true;
       
-      let id = container_extensions.querySelector(".extnum").value;
-      container_extensions.querySelector(".extnum").value = "";
+      let id = containerExtensions.querySelector(".extnum").value;
+      containerExtensions.querySelector(".extnum").value = "";
+
       try {
         id = parseInt(id);
       } catch {
         return;
       }
+
       if (!savedExtList[id - 1]) {
         alert("Select extension from list!");
-        container_extensions.querySelector("#toggler").disabled = false;
+        containerExtensions.querySelector("#toggler").disabled = false;
         return;
       }
+
       await new Promise(function (resolve) {
-        chrome.management.setEnabled(
-          savedExtList[id - 1].id,
-          !savedExtList[id - 1].enabled,
-          resolve,
-        );
+        chrome.management.setEnabled(savedExtList[id - 1].id, !savedExtList[id - 1].enabled, resolve);
       });
 
-      container_extensions.querySelector("#toggler").disabled = false;
-      await updateExtensionStatus(extlistElement);
+      containerExtensions.querySelector("#toggler").disabled = false;
+      await updateExtensionStatus(extContainerElement);
     };
-    container_extensions.querySelector("#toggler").disabled = false;
+
+    containerExtensions.querySelector("#toggler").disabled = false;
   }
-}
 
-async function updateExtensionStatus(extlistElement) {
-  extlistElement.innerHTML = "";
-  chrome.management.getAll(function (extlist) {
-    const ordlist = [];
-    extlist.forEach(function (e) {
-      if (e.id === new URL(location.href).origin) return;
-      ordlist.push(e);
-
-      const listItem = document.createElement("li");
-      listItem.classList.add('extension-item');
-      
-      const extInfo = document.createElement("div");
-      extInfo.classList.add('ext-info');
-      const icon = document.createElement("img");
-      icon.src = e.icons ? e.icons[0].url : '';
-      const name = document.createElement("div");
-      name.textContent = e.name;
-      const id = document.createElement("div");
-      id.textContent = e.id;
-      extInfo.appendChild(icon);
-      extInfo.appendChild(name);
-      extInfo.appendChild(id);
-      listItem.appendChild(extInfo);
-
-      const toggleSwitch = document.createElement('input');
-      toggleSwitch.type = 'checkbox';
-      toggleSwitch.checked = e.enabled;
-      toggleSwitch.addEventListener('change', function () {
-        chrome.management.setEnabled(e.id, toggleSwitch.checked);
-      });
-
-      listItem.appendChild(toggleSwitch);
-      extlistElement.appendChild(listItem);
-    });
-    savedExtList = ordlist;
-  });
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  if (chrome.management) {
-    new DefaultExtensionCapabilities().activate();
-    ExtensionCapabilities.setupSlides();
-  }
-});
+  new DefaultExtensionCapabilities().activate();
+  document.close();
+  ExtensionCapabilities.setupSlides();
+};
