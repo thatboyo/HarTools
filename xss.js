@@ -6,7 +6,7 @@
 
     //     window.w = w;
     // })
-    const w = window.opener.open("devtools://devtools/bundled/devtools_app.html");
+    const w = window.opener.open("devtools://devtools/bundled/inspector.html");
     window.opener.close();
     w.addEventListener("load", async () => {
         if (!w.DevToolsAPI) {
