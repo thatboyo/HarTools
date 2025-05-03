@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HarTools</title>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Geist:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+      iframe {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      body {
+        font-family: 'Geist', sans-serif;
+        background-color: #000000;
+        color: #8a2be2;
+        margin: 0;
+        padding: 15px;
+        overflow: hidden;
+      }
+
+      .background-grid {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: radial-gradient(#333 1px, transparent 1px);
+        background-size: 2rem 2rem;
+        z-index: -1;
+        animation: moveGrid 4s linear infinite;
+        transition: background-position-x 400ms;
+      }
+
+      @keyframes moveGrid {
+        0% {
+          background-position: 0 0;
+        }
+
+        100% {
+          background-position: 2rem 2rem;
+        }
+      }
+
+      .background-grid:hover {
+        background-position-x: 2rem;
+      }
+
+      a {
+        color: #8a2be2;
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: none;
+      }
+
+      .main {
+        top: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        border: 1px solid #1d1d1d;
+        font-weight: bold;
+        padding: 30px;
+        border-radius: 8px;
+        text-align: center;
+        background-color: #000;
+        max-height: 90vh;
+        overflow-y: auto;
+        width: 75%;
+      }
+
+      .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+
+      .logo {
+        width: 3.5em;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .title-text {
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.2em;
+        margin: 0;
+        color: #8a2be2;
+        font-weight: bold;
+      }
+
+      .button {
+        background-color: #8a2be2;
+        color: black;
+        padding: 8px 12px;
+        text-align: center;
+        display: inline-block;
+        font-size: 14px;
+        margin: 5px;
+        cursor: pointer;
+        border-radius: 6px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      }
+
+      .button:hover {
+        background-color: #e2e2e2;
+        transform: scale(1.1);
+      }
+
+      .button:focus {
+        outline: none;
+      }
+
+      input,
+      select,
+      textarea {
+        background-color: #121212;
+        color: white;
+        border: 1px solid #333;
+        padding: 10px;
+        border-radius: 4px;
+        width: 100%;
+        margin-bottom: 15px;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: none;
+        border-color: #a812ff;
+      }
+
+      ::placeholder {
+        color: #bbb;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="background-grid"></div>
+    <div class="main">
+      <div class="header">
+        <img src="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/hartools.gif" alt="HarTools Logo" class="logo" />
+        <div class="title-text">
+          <h1>HarTools</h1>
+          <p>Developer Tools and Extension Code execution</p>
+        </div>
+      </div>
+
+      <p>This was found by <a href="https://crossjbly.pages.dev/">crossjbly</a><br>Original RigTools Exploit was found by <a href="https://github.com/FWSmasher">FWSmasher</a></p>
+      <hr>
+      <p>AKA: if someone tells you that they made this, they're lying and you should laugh at them</p>
+      <hr>
+      <p>Additional credits: Discord: @axqmx (testing and helping with development) @pwen (ideas) | Github: <a href="https://github.com/FWSmasher">FWSmasher</a> (original rigtools exploit) <a href="https://github.com/Blobby-Boi">Blobby Boi</a> (testing and development)</p>
+      <hr>
+
+      <p>Press Q for evaluating code under <a class="button" id="extdbg" href="javascript:void(0)">extension id</a></p>
+      <p>Or press 1-9 for some hardcoded extensions</p>
+      <p>
+        <a class="button hardcoded" ext="adkcpkpghahmbopkjchobieckeoaoeem" href="javascript:void(0)">ls filter</a>
+        <a class="button hardcoded" ext="hpkdokakjglppeekfeekmebfahadnflp" href="javascript:void(0)">ls alert</a>
+        <a class="button hardcoded" ext="haldlgldplgnggkjaafhelgiaglafanh" href="javascript:void(0)">goguardian</a>
+        <a class="button hardcoded" ext="moehkbbcbklmkcjibcbbooebgpogejoc" href="javascript:void(0)">aristotle</a>
+        <a class="button hardcoded" ext="kmffehbidlalibfeklaefnckpidbodff" href="javascript:void(0)">iboss</a>
+        <a class="button hardcoded" ext="mloajfnmjckfjbeeofcdaecbelnblden" href="javascript:void(0)">snap&read</a>
+        <a class="button hardcoded" ext="fogjeanjfbiombghnmkmmophfeccjdki" href="javascript:void(0)">lockdown browser</a>
+        <a class="button hardcoded" ext="kmpjlilnemjciohjckjadmgmicoldglf" href="javascript:void(0)">dyknow cloud</a>
+        <a class="button hardcoded" ext="gndmhdcefbhlchkhipcnnbkcmicncehk" href="javascript:void(0)">gforms locked mode (enrolled cbs)</a>
+      </p>
+
+      <p>Press M for evaluating under <a class="button" id="devdbg" href="javascript:void(0)">devtools</a> context</p>
+      <p>Typing cancel in any prompt will cancel the current operation.</p>
+
+      <a class="button" href="devtools://devtools/bundled/devtools_app.html?experiments=true&ws=%%updaterurl%%">Re-open devtools</a>
+      <a class="button" href="javascript:void(0)" id="updater">Update payload</a>
+      <a class="button" href="javascript:void(0)" id="cleanup">Cleanup and reset for extension</a>
+      <a class="button" href="javascript:void(0)" id="activate">Chrome URLs</a>
+      <a class="button" href="javascript:void(0)" id="activate2">Chrome URLs 2</a>
+    </div>
+
+    <script defer>
+      document.addEventListener("keydown", function(event) {
+        if (event.key === "q") {
+          document.getElementById("extdbg").click();
+        } else if (event.key === "m") {
+          document.getElementById("devdbg").click();
+        } else if (["1", "2", "3", "4", "5", "6", "7", "8", "9"].includes(event.key)) {
+          console.log(event.key);
+          document.querySelector(`p .hardcoded:nth-child(${parseInt(event.key)})`).click();
+        }
+      });
+    </script>
+  </body>
+</html>
