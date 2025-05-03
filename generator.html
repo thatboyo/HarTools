@@ -3,6 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <title>Devtools .har XSS Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: black;
+      color: white;
+    }
+    textarea {
+      width: 100%;
+      max-width: 800px;
+      margin-bottom: 10px;
+      outline: 2px solid white;
+      background-color: black;
+      color: white;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
   <h1>Devtools .har XSS Generator</h1>
@@ -12,22 +33,6 @@
   <button onclick="generateHar()">Generate .har file</button>
 
   <script>
-  function escapeForJsonString(str) {
-    return str
-      .replace(/\\/g, '\\\\')
-      .replace(/"/g, '\\"')
-      .replace(/\u0000/g, '\\u0000')
-      .replace(/\n/g, '\\n')
-      .replace(/\r/g, '\\r')
-      .replace(/\t/g, '\\t')
-      .replace(/\f/g, '\\f')
-      .replace(/\b/g, '\\b')
-      .replace(/</g, '\\u003C')
-      .replace(/>/g, '\\u003E')
-      .replace(/&/g, '\\u0026')
-      .replace(/'/g, '\\u0027');
-  }
-
   function generateHar() {
     const inputCode = document.getElementById('jsInput').value.trim();
     if (!inputCode) {
@@ -36,9 +41,9 @@
     }
 
     const now = new Date().toISOString();
-    const base64Code = btoa(unescape(encodeURIComponent(inputCode)));
-    const bookmarkletUrl = `javascript:eval(atob('${base64Code}'))`;
-    const escapedInputCode = escapeForJsonString(inputCode);
+    const base64Code = btoa(inputCode);
+
+    const bookmarkletUrl = `javascript: (function() {eval(atob(\"${base64Code}\"))})()`;
 
     const har = {
       log: {
@@ -108,7 +113,7 @@
               content: {
                 size: inputCode.length,
                 mimeType: "application/javascript",
-                text: escapedInputCode
+                text: inputCode
               },
               redirectURL: "",
               headersSize: -1,
