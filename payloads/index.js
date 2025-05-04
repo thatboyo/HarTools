@@ -1148,13 +1148,12 @@ ul {
 }
 
 .switch {
-    position: relative;
+    position: absolute;
     display: inline-block;
     width: 28px;
     height: 16px;
-    align-self: flex-end;
-    margin-right: 10px;
-    margin-top: 10px;
+    right: 10px;
+    bottom: 10px;
 }
 
 .switch input {
@@ -1181,7 +1180,7 @@ ul {
   position: absolute;
   height: 12px;
   width: 12px;
-  left: 4px;
+  left: 2px;
   top: 50%;
   transform: translateY(-50%) scale(0.8);
   background-color: #8e918f;
