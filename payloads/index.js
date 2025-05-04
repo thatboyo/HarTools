@@ -1105,12 +1105,13 @@ ul {
 }
 
 .extension-card, .extension-card-all {
-  margin-left: 12px;
-  margin-bottom: 12px;
+  margin-left: 5px;
+  margin-bottom: 5	px;
   background: #292a2d;
   border-radius: 10px;
   width: 375px;
-  padding: 12px;
+  height: 140px;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -1147,12 +1148,11 @@ ul {
 }
 
 .switch {
-  position: relative;
-  display: inline-block;
-  width: 50px;
-  height: 24px;
-  margin-top: auto;
-  align-self: flex-end;
+    position: relative;
+    display: inline-block;
+    width: 33px;
+    height: 20px;
+    margin-left: 10px;
 }
 
 .switch input {
@@ -1164,30 +1164,41 @@ ul {
 .slider {
   position: absolute;
   cursor: pointer;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-color: #27272a;
-  border-radius: 9999px;
-  transition: 0.4s;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #444746;
+  border-radius: 15px;
+  border: 1.5px solid #8e918f;
+  transition: background-color 0.1s ease-in-out, border-color 0.1s ease-in-out;
 }
 
 .slider:before {
-  position: absolute;
   content: "";
-  height: 20px;
-  width: 20px;
-  left: 2px;
-  bottom: 2px;
-  background-color: #000;
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #8e918f;
   border-radius: 50%;
-  transition: 0.4s;
+  transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+
+.switch:hover .slider:before {
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.5);
 }
 
 input:checked + .slider {
-  background-color: #fff;
+  background-color: #a8c7fa;
+  border-color: #a8c7fa;
 }
 
 input:checked + .slider:before {
-  transform: translateX(26px);
+  transform: translate(12px, -50%);
+  background-color: #062e6f;
 }
 
 .header {
@@ -1350,7 +1361,6 @@ input:hover {
   border-color: #fff;
 }
 
-/* Toasts */
 .toast[popover]:popover-open {
   opacity: 1;
   top: 5px;
@@ -1376,7 +1386,6 @@ input:hover {
   border: 1px solid #444;
 }
 
-/* Dialog styling */
 dialog {
   opacity: 0;
   padding: 30px;
@@ -1654,14 +1663,14 @@ onload = async function x() {
             const url = await writeFile(
                 "rigtools.html",
                 `${await fetch(
-          "https://raw.githubusercontent.com/T3M1N4L/rigtools-updated-ui/refs/heads/main/payloads/index.html"
+          "https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/payloads/index.html"
         ).then((res) => res.text())}<script src="./rigtools.js"></script>`
             );
 
             await writeFile(
                 "rigtools.js",
                 await fetch(
-                    "https://raw.githubusercontent.com/T3M1N4L/rigtools-updated-ui/refs/heads/main/payloads/index.js"
+                    "https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/payloads/index.js"
                 ).then((res) => res.text())
             );
 
