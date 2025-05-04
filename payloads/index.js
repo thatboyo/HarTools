@@ -1062,32 +1062,10 @@ const htmlStyle = `
 }
 
 body {
-  background-color: #000000;
+  background-color: #1e1f22;
   color: #fff;
   margin: 0;
   padding: 20px;
-}
-
-.background-grid {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-image: radial-gradient(#333 1px, transparent 1px);
-  background-size: 2rem 2rem;
-  z-index: -1;
-  animation: moveGrid 4s linear infinite;
-  transition: background-position-x 400ms;
-}
-
-@keyframes moveGrid {
-  0% { background-position: 0 0; }
-  100% { background-position: 2rem 2rem; }
-}
-
-.background-grid:hover {
-  background-position-x: 2rem;
 }
 
 body::-webkit-scrollbar,
@@ -1126,7 +1104,6 @@ ul {
   justify-content: center;
 }
 
-/* Updated extension card layout */
 .extension-card, .extension-card-all {
   background: #292a2d;
   border: 1px solid #444;
@@ -1633,7 +1610,6 @@ onload = async function x() {
         "beforeend",
         `
       <title>Untitled document</title>
-      <div class="background-grid"></div>
       <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/">
       `
     );
