@@ -1026,11 +1026,12 @@ const fileManagerPrivateTemplate = `
 
 `;
 const htmlStyle = `
-    <style>
-    @import url('https://fonts.googleapis.com/css2?family=Geist:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+* {
+    font-family: 'Roboto', Arial, sans-serif;
+}
 body {
-  font-family: 'Geist', sans-serif;
   background-color: #000000;
   color: #fff;
   margin: 0;
@@ -1094,53 +1095,44 @@ ul {
 }
 
 .extension-card, .extension-card-all {
-  border: 1px solid #333;
-  background-color: #000;
-  width: 200px;
-  height: 200px;
-  padding: 15px;
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  text-align: center;
-  transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.extension-card:has(input:checked),
-.extension-card-all:has(input:checked) {
-  background-color: #000;
-  border: 1px solid #fff;
+    background: #292a2d;
+    border: 1px solid #444;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 375px;
+    height: 140px;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-between;
+    padding: 10px;
+    position: relative;
 }
 
 .extension-header {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    gap: 8px;
 }
 
 .extension-icon {
-  width: 32px;
-  height: 32px;
-  flex-shrink: 0;
-  cursor: pointer;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    user-select: none;
 }
 
 .extension-name {
-  font-weight: bold;
-  font-size: 14px;
-  text-align: left;
+    font-size: 13px;
+    color: white;
+    text-align: left;
 }
 
 .extension-id {
-  font-size: 12px;
-  color: #888;
-  word-break: break-word;
-  margin-top: 4px;
-  text-align: center;
+    font-size: 13px;
+    color: #c4c7c5;
+    margin-left: 48px;
+    margin-top: -10px;
 }
 
 .toggle-switch {
