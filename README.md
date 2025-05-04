@@ -1,5 +1,5 @@
 <p align=center><img src="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/hartools.gif"/>
-<p align=center><code>Extension/Devtools code execution post-rigtools patch</code></p> 
+<p align=center><code>Extension/Devtools code execution post-rigtools patch (129-133)</code></p> 
 
 ## How to use
 **1. Download [HARTOOLS.har](https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/HARTOOLS.har)**\
@@ -14,6 +14,6 @@
 
 ## Credits
  - Crossjbly: Finding the vulnerability in .har files
- - Blobby Boi: Helping with development of the payloads and testing
+ - Blobby Boi: Helping with development of the payloads and UI
  - axqmx: Testing and help with development
  - unretained: Original rigtools developer tools code execution exploit (this literally wouldn't have been possible without rigtools lol)
