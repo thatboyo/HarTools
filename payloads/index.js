@@ -1105,16 +1105,18 @@ ul {
 }
 
 .extension-card, .extension-card-all {
+  margin-left: 12px;
+  margin-bottom: 12px;
   background: #292a2d;
-  border: 1px solid #444;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 375px;
   padding: 12px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 10px;
+  padding: 10px;
   position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .extension-header {
@@ -1232,22 +1234,21 @@ input:checked + .slider:before {
 }
 
 button {
-  background-color: #000;
-  color: #fff;
-  border: 1px solid #333;
-  padding: 8px 16px;
-  margin: 4px 2px;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: bold;
-  text-decoration: none;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    background: transparent;
+    color: #9dbae9;
+    font-weight: bold;
+    border: 1px solid #047db7;
+    border-radius: 20px;
+    height: 35px;
+    padding: 7px 10px;
+    cursor: pointer;
+    align-self: flex-end;
+    transition: background 0.2s ease-in-out;
+    outline: none;
 }
 
 button:hover {
-  background-color: #111;
-  border-color: #fff;
+    background: #38393b;
 }
 
 input {
