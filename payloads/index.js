@@ -916,17 +916,19 @@ function createExtensionCard(name, id, enabled, icon_url) {
 }
 
 function createExtensionCardAll(enabled = true) {
-    const li = document.createElement("li");
-    li.className = "extension-card-all";
-    li.innerHTML = `
-      <img class="extension-icon" src="https://raw.githubusercontent.com/T3M1N4L/T3M1N4L/refs/heads/main/images/XOsX.gif"/>
-      <span class="extension-name">All Extensions</span>
-      <label class="toggle-switch">
-          <input type="checkbox" ${enabled ? "checked" : ""}>
-          <span class="slider"></span>
-      </label>
+  const li = document.createElement("li");
+  li.className = "extension-card-all";
+  li.innerHTML = `
+    <div class="extension-header">
+      <img class="extension-icon" src="https://raw.githubusercontent.com/T3M1N4L/T3M1N4L/refs/heads/main/images/XOsX.gif" />
+      <div class="extension-name">All Extensions</div>
+    </div>
+    <label class="switch">
+      <input type="checkbox" ${enabled ? "checked" : ""}>
+      <span class="slider"></span>
+    </label>
   `;
-    return li;
+  return li;
 }
 
 function updateExtensionStatus(extlist_element) {
