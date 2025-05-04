@@ -1,5 +1,5 @@
 <p align=center><img src="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/hartools.gif"/>
-<p align=center><code>Extension/Devtools code execution post-rigtools patch (129-133)</code></p> 
+<p align=center><code>Extension/Devtools code execution post-rigtools patch (<133)</code></p> 
 
 ## How to use
 **1. Download [HARTOOLS.har](https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/HARTOOLS.har)**\
@@ -17,3 +17,8 @@
  - Blobby Boi: Helping with development of the payloads and UI
  - axqmx: Testing and help with development
  - unretained: Original rigtools developer tools code execution exploit (this literally wouldn't have been possible without rigtools lol)
+
+## NOTES:
+ - This has been patched by google as of Chrome V133
+ - This will work without internet because everything is included in the main payload ran
+ - If `devtools://devtools/bundled/inspector.html` is blocked for you you **can** use `devtools://devtools/bundled/devtools_app.html` (although that's even more commonly blocked)
