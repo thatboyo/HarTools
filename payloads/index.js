@@ -1144,12 +1144,12 @@ ul {
 .extension-header {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 25px;
 }
 
 .extension-icon {
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   flex-shrink: 0;
   user-select: none;
 }
@@ -1163,7 +1163,7 @@ ul {
 .extension-id {
   font-size: 12px;
   color: #c4c7c5;
-  margin-left: 50px;
+  margin-left: 10px;
 }
 
 /* Updated switch styling */
