@@ -1150,10 +1150,11 @@ ul {
 .switch {
     position: relative;
     display: inline-block;
-    width: 33px;
-    height: 18px;
+    width: 25px;
+    height: 15px;
     align-self: flex-end;
     margin-right: 10px;
+    margin-top: 10px;
 }
 
 .switch input {
@@ -1182,7 +1183,7 @@ ul {
   width: 12px;
   left: 4px;
   top: 50%;
-  transform: translateY(-50%) scale(0.8);
+  transform: translateY(-50%) scale(0.6);
   background-color: #8e918f;
   border-radius: 50%;
   transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
