@@ -1151,7 +1151,7 @@ ul {
     position: relative;
     display: inline-block;
     width: 28px;
-    height: 15px;
+    height: 18px;
     align-self: flex-end;
     margin-right: 10px;
     margin-top: 10px;
@@ -1199,7 +1199,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translate(6px, -50%) scale(1);
+  transform: translate(8px, -50%) scale(1);
   background-color: #062e6f;
 }
 
