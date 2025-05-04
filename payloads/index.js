@@ -128,7 +128,7 @@ const managementTemplate = `
     <img src="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/hartools.gif" alt="HarTools Logo" class="logo" />
     <h1> chrome.management Disable Extensions </h1>
   </div>
-  <p class="description">GitHub repo: https://github.com/crossjbly/HarTools/ <hr> XSS found by <a href="https://crossjbly.pages.dev/">crossjbly</a> <hr> UI made by <a href="https://github.com/Blobby-Boi/">Blobby Boi</a>
+  <p class="description">GitHub repo: https://github.com/crossjbly/HarTools/ <br> XSS found by <a href="https://crossjbly.pages.dev/">crossjbly</a> <br> UI made by <a href="https://github.com/Blobby-Boi/">Blobby Boi</a><br></p>
   <p>Extensions</p>
   <whitebuttons>
   <button id="current-extension">Disable injected extension</button>
@@ -1091,7 +1091,6 @@ h1 {
 
 .description {
   margin-bottom: 20px;
-  color: #333;
 }
 
 ul {
@@ -1107,7 +1106,7 @@ ul {
 
 .extension-card, .extension-card-all {
   margin-left: 5px;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   background: #292a2d;
   border-radius: 10px;
   width: 375px;
