@@ -1121,6 +1121,7 @@ ul {
   display: flex;
   align-items: center;
   margin-bottom: 25px;
+  margin-top: 10px;
 }
 
 .extension-icon {
