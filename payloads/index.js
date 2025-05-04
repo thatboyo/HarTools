@@ -1140,7 +1140,6 @@ ul {
   position: relative;
 }
 
-/* Header is flex row with icon + name
 .extension-header {
   display: flex;
   align-items: center;
