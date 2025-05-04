@@ -1151,8 +1151,9 @@ ul {
     position: relative;
     display: inline-block;
     width: 33px;
-    height: 20px;
-    margin-left: 10px;
+    height: 18px;
+    align-self: flex-end;
+    margin-right: 10px;
 }
 
 .switch input {
@@ -1181,7 +1182,7 @@ ul {
   width: 12px;
   left: 4px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-50%) scale(0.8);
   background-color: #8e918f;
   border-radius: 50%;
   transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
@@ -1197,7 +1198,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translate(12px, -50%);
+  transform: translate(12px, -50%) scale(1);
   background-color: #062e6f;
 }
 
