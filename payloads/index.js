@@ -1152,16 +1152,16 @@ ul {
   flex-shrink: 0;
   user-select: none;
   margin-left: 10px;
+  margin-right: 10px;
 }
 
 .extension-name {
-  font-size: 16px;
+  font-size: 13px;
   color: white;
-  font-weight: bold;
 }
 
 .extension-id {
-  font-size: 12px;
+  font-size: 13px;
   color: #c4c7c5;
   margin-left: 10px;
 }
