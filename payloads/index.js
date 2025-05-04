@@ -1152,8 +1152,8 @@ ul {
     display: inline-block;
     width: 28px;
     height: 16px;
-    right: 10px;
-    bottom: 10px;
+    right: 20px;
+    bottom: 15px;
 }
 
 .switch input {
@@ -1198,7 +1198,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translate(8px, -50%) scale(1);
+  transform: translate(10px, -50%) scale(1);
   background-color: #062e6f;
 }
 
