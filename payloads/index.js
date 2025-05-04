@@ -1183,7 +1183,7 @@ ul {
   width: 12px;
   left: 4px;
   top: 50%;
-  transform: translateY(-50%) scale(0.6);
+  transform: translateY(-50%) scale(0.8);
   background-color: #8e918f;
   border-radius: 50%;
   transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
@@ -1199,7 +1199,7 @@ input:checked + .slider {
 }
 
 input:checked + .slider:before {
-  transform: translate(10px, -50%) scale(1);
+  transform: translate(8px, -50%) scale(1);
   background-color: #062e6f;
 }
 
