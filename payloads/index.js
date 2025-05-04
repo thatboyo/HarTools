@@ -671,8 +671,6 @@ class DefaultExtensionCapabilities {
           <textarea id="code" placeholder="Enter JavaScript to inject"></textarea>
         </div>
         <button id="code-run">Run</button>
-         <h2> Riienrollment </h2>
-        <button id="forreenroll"> Download zip </button>
         <div id="code-output"></div>
 
     </div>
@@ -778,35 +776,6 @@ class DefaultExtensionCapabilities {
 
                 btn.addEventListener("click", this.onBtnClick_.bind(this, btn));
             }, this);
-        document.body.querySelector("#forreenroll")
-            .addEventListener('click', async function handler_(tar) {
-                console.log(!('JSZip' in window));
-                if (!('JSZip' in window)) {
-                    await DefaultExtensionCapabilities.evalCode(await (await fetch("https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js")).text());
-                    setTimeout(handler_);
-                    return;
-                }
-                console.log("creating zip");
-                const zipFile = new JSZip();
-                for (const f of kFiles) {
-                    let buffer;
-                    try {
-                        buffer = await readFile(f);
-                    } catch (e) {
-                        console.log("could not read file " + f);
-                        continue;
-                    }
-                    zipFile.file(posix.basename(f), new Uint8Array(buffer));
-                }
-                zipFile.file(posix.basename(await findLastPolicyFile()), await readFile(await findLastPolicyFile()));
-                const url = URL.createObjectURL(await zipFile.generateAsync({
-                    type: "blob"
-                }));
-                const aelem = document.createElement('a');
-                aelem.href = url;
-                aelem.download = "";
-                aelem.click();
-            })
 
         this.updateTabList();
         for (let i in chrome.tabs) {
