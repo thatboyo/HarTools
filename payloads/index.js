@@ -1140,11 +1140,11 @@ ul {
   position: relative;
 }
 
-/* Updated header: flex row with icon + name */
+/* Header is flex row with icon + name
 .extension-header {
   display: flex;
   align-items: center;
-  gap: 25px;
+  margin-bottom: 25px;
 }
 
 .extension-icon {
@@ -1152,6 +1152,7 @@ ul {
   height: 32px;
   flex-shrink: 0;
   user-select: none;
+  margin-left: 10px;
 }
 
 .extension-name {
@@ -1166,7 +1167,6 @@ ul {
   margin-left: 10px;
 }
 
-/* Updated switch styling */
 .switch {
   position: relative;
   display: inline-block;
@@ -1211,7 +1211,6 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-/* Rest of your styles untouched */
 .header {
   display: flex;
   align-items: center;
