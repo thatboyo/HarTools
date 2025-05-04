@@ -128,7 +128,7 @@ const managementTemplate = `
     <img src="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/hartools.gif" alt="HarTools Logo" class="logo" />
     <h1> chrome.management Disable Extensions </h1>
   </div>
-  <p class="description">github repo: https://github.com/crossjbly/HarTools/ | .HAR XSS found by <a href="https://crossjbly.pages.dev/">crossjbly</a> (credits: axqmx: testing | Blobby Boi: testing and help with development | unretained: original devtools xss [a.k.a rigtools])
+  <p class="description">GitHub repo: https://github.com/crossjbly/HarTools/ <hr> XSS found by <a href="https://crossjbly.pages.dev/">crossjbly</a> <hr> UI made by <a href="https://github.com/Blobby-Boi/">Blobby Boi</a>
   <p>Extensions</p>
   <whitebuttons>
   <button id="current-extension">Disable injected extension</button>
@@ -1076,6 +1076,7 @@ dialog div::-webkit-scrollbar {
 
 p {
   margin: 5px auto;
+  color: white;
 }
 
 #chrome_management_disable_ext, #ext_default {
@@ -1106,7 +1107,7 @@ ul {
 
 .extension-card, .extension-card-all {
   margin-left: 5px;
-  margin-bottom: 5	px;
+  margin-bottom: 8px;
   background: #292a2d;
   border-radius: 10px;
   width: 375px;
