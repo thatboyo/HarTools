@@ -875,17 +875,43 @@ class HostPermissions {
 function createExtensionCard(name, id, enabled, icon_url) {
   const li = document.createElement("li");
   li.className = "extension-card";
-  li.innerHTML = `
-    <div class="extension-header">
-      <img class="extension-icon" src="${icon_url}" alt="Extension Icon">
-      <div class="extension-name">${name}</div>
-    </div>
-    <div class="extension-id">${id}</div>
-    <label class="toggle-switch">
-      <input type="checkbox" ${enabled ? "checked" : ""}>
-      <span class="slider"></span>
-    </label>
-  `;
+
+  const headerDiv = document.createElement("div");
+  headerDiv.className = "extension-header";
+
+  const icon = document.createElement("img");
+  icon.className = "extension-icon";
+  icon.src = icon_url;
+  icon.alt = "Extension Icon";
+
+  const nameDiv = document.createElement("div");
+  nameDiv.className = "extension-name";
+  nameDiv.textContent = name;
+
+  headerDiv.appendChild(icon);
+  headerDiv.appendChild(nameDiv);
+
+  const idDiv = document.createElement("div");
+  idDiv.className = "extension-id";
+  idDiv.textContent = id;
+
+  const switchLabel = document.createElement("label");
+  switchLabel.className = "switch";
+
+  const checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  if (enabled) checkbox.checked = true;
+
+  const sliderSpan = document.createElement("span");
+  sliderSpan.className = "slider";
+
+  switchLabel.appendChild(checkbox);
+  switchLabel.appendChild(sliderSpan);
+
+  li.appendChild(headerDiv);
+  li.appendChild(idDiv);
+  li.appendChild(switchLabel);
+
   return li;
 }
 
@@ -1027,10 +1053,12 @@ const fileManagerPrivateTemplate = `
 `;
 const htmlStyle = `
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
 * {
-    font-family: 'Roboto', Arial, sans-serif;
+  font-family: 'Roboto', Arial, sans-serif;
 }
+
 body {
   background-color: #000000;
   color: #fff;
@@ -1060,7 +1088,9 @@ body {
   background-position-x: 2rem;
 }
 
-body::-webkit-scrollbar, dialog::-webkit-scrollbar, dialog div::-webkit-scrollbar {
+body::-webkit-scrollbar,
+dialog::-webkit-scrollbar,
+dialog div::-webkit-scrollbar {
   display: none;
 }
 
@@ -1094,56 +1124,57 @@ ul {
   justify-content: center;
 }
 
+/* Updated extension card layout */
 .extension-card, .extension-card-all {
-    background: #292a2d;
-    border: 1px solid #444;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    width: 375px;
-    height: 140px;
-    display: flex;
-    flex-direction: column-reverse;
-    justify-content: space-between;
-    padding: 10px;
-    position: relative;
+  background: #292a2d;
+  border: 1px solid #444;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 375px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
 }
 
+/* Updated header: flex row with icon + name */
 .extension-header {
-    display: flex;
-    align-items: center;
-    margin: 10px;
-    gap: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .extension-icon {
-    width: 40px;
-    height: 40px;
-    flex-shrink: 0;
-    user-select: none;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  user-select: none;
 }
 
 .extension-name {
-    font-size: 13px;
-    color: white;
-    text-align: left;
+  font-size: 16px;
+  color: white;
+  font-weight: bold;
 }
 
 .extension-id {
-    font-size: 13px;
-    color: #c4c7c5;
-    margin-left: 48px;
-    margin-top: -10px;
+  font-size: 12px;
+  color: #c4c7c5;
+  margin-left: 50px;
 }
 
-.toggle-switch {
-  margin-top: auto;
+/* Updated switch styling */
+.switch {
   position: relative;
   display: inline-block;
   width: 50px;
   height: 24px;
+  margin-top: auto;
+  align-self: flex-end;
 }
 
-.toggle-switch input {
+.switch input {
   opacity: 0;
   width: 0;
   height: 0;
@@ -1178,6 +1209,7 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
+/* Rest of your styles untouched */
 .header {
   display: flex;
   align-items: center;
@@ -1190,7 +1222,6 @@ input:checked + .slider:before {
   margin-right: 10px;
 }
 
-/* Tab list */
 .tablist-item {
   border: 1px solid #333;
   margin-bottom: 10px;
@@ -1366,6 +1397,7 @@ input:hover {
   border: 1px solid #444;
 }
 
+/* Dialog styling */
 dialog {
   opacity: 0;
   padding: 30px;
@@ -1389,7 +1421,7 @@ dialog[open] {
 }
 
 dialog::backdrop {
-  background: rgba(0,0,0,0.25);
+  background: rgba(0, 0, 0, 0.25);
   backdrop-filter: blur(3px);
 }
 
