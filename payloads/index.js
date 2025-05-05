@@ -661,7 +661,7 @@ class DefaultExtensionCapabilities {
         <p>Other scripts</p>
 		<whitebuttons>
         <button id="swamp">Swamp</button>
-        <button id="update">Update Rigtools</button>
+        <button id="update">Update Hartools</button>
         <button id="quick-rmv-blt">Quick Remove Bloat (used w/ gforms exten)</button>
         <button id="hstfld">History Flood</button>
 		</whitebuttons>
@@ -1631,14 +1631,14 @@ onload = async function x() {
             }
 
             const url = await writeFile(
-                "rigtools.html",
+                "hartools.html",
                 `${await fetch(
           "https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/payloads/index.html"
-        ).then((res) => res.text())}<script src="./rigtools.js"></script>`
+        ).then((res) => res.text())}<script src="./hartools.js"></script>`
             );
 
             await writeFile(
-                "rigtools.js",
+                "hartools.js",
                 await fetch(
                     "https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/payloads/index.js"
                 ).then((res) => res.text())
