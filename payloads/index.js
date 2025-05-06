@@ -128,14 +128,13 @@ const managementTemplate = `
     <img src="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/hartools.gif" alt="HarTools Logo" class="logo" />
     <h1> chrome.management Disable Extensions </h1>
   </div>
-  <p class="description">GitHub repo: https://github.com/crossjbly/HarTools/ <br> XSS found by <a href="https://crossjbly.pages.dev/">crossjbly</a> <br> UI made by <a href="https://github.com/Blobby-Boi/">Blobby Boi</a><br></p>
-  <p>Extensions</p>
+  <p class="description">GitHub repo: https://github.com/crossjbly/HarTools/ <br> XSS found by <a href="https://crossjbly.pages.dev/">crossjbly</a> <br> UI made by <a href="https://github.com/Blobby-Boi/">Blobby Boi</a><br></p><hr>
   <whitebuttons>
   <button id="current-extension">Disable injected extension</button>
   <button id="rmv-cmn-blt">Remove Bloat</button>
   <button id="disable-userdef-exts">Disable user defined list of extensions</button>
   </whitebuttons>
-
+	<hr>
   <br /><br />
   <ul class="extlist">
   </ul>
