@@ -10,13 +10,13 @@
 &nbsp;&nbsp;&nbsp;&nbsp;**^^^ if you are already on the network page you can skip this ^^^**\
 **6. Click the little upload button and select the downloaded `HARTOOLS.HAR`**\
 &nbsp;&nbsp;&nbsp;&nbsp;**^^^ you may need to expand the sidebar to see it ^^^**\
-**7. Double click on the text that appears in the box**
+**7. Double click on the text that appears in the box**\
 
-***if `devtools://devtools/bundled/inspector.html` is blocked for you:***
-&nbsp;&nbsp;&nbsp;&nbsp;**substitute inspector.html with any of the following:***
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`js_app.html`
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`devtools_app.html`
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`worker_app.html`
+***if `devtools://devtools/bundled/inspector.html` is blocked for you:***\
+&nbsp;&nbsp;&nbsp;&nbsp;**substitute inspector.html with any of the following:***\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`js_app.html`\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`devtools_app.html`\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`worker_app.html`\
 
 ## Creating your own payloads
 If you are intrested in creating your own payload, head over to [the generator](https://skiovox125.vercel.app/hartools/generator.html)
