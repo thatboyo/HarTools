@@ -19,7 +19,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`worker_app.html`\
 
 ## Creating your own payloads
-If you are intrested in creating your own payload, head over to [the generator](https://skiovox125.vercel.app/hartools/generator.html)
+If you are intrested in creating your own payload, head over to [the generator](https://skiovox125.vercel.app/hartools/generator.html), if vercel.app is blocked or this is down use the [data page url](https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/generator-datapage.txt?token=GHSAT0AAAAAADDNWYYQX64BMI5V3QSYVN6W2A2RSQA)
 
 ## Credits
  - Crossjbly: Finding the vulnerability in .har files
