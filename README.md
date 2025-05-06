@@ -10,7 +10,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;**^^^ if you are already on the network page you can skip this ^^^**\
 **6. Click the little upload button and select the downloaded `HARTOOLS.HAR`**\
 &nbsp;&nbsp;&nbsp;&nbsp;**^^^ you may need to expand the sidebar to see it ^^^**\
-**7. Double click on the text that appears in the box**\
+**7. Double click on the text that appears in the box**
 
 ***if `devtools://devtools/bundled/inspector.html` is blocked for you:***\
 &nbsp;&nbsp;&nbsp;&nbsp;**substitute inspector.html with any of the following:***\
