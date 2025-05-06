@@ -13,7 +13,7 @@
 **7. Double click on the text that appears in the box**
 
 ***if `devtools://devtools/bundled/inspector.html` is blocked for you:***\
-&nbsp;&nbsp;&nbsp;&nbsp;**substitute inspector.html with any of the following:***\
+&nbsp;&nbsp;&nbsp;&nbsp;**substitute inspector.html with any of the following:**\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`js_app.html`\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`devtools_app.html`\
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`worker_app.html`
