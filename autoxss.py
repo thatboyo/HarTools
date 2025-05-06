@@ -23,3 +23,4 @@ js_contents = js_contents.replace("putindex.jscontentshere", index_js_b64)
 with open("autoxss.js", "w", encoding="utf-8") as f:
     f.write(js_contents)
 print("The output should now be saved at autoxss.js")
+print("Go to https://skiovox125.vercel.app/hartools/generator.html in order to convert xss.js to HARTOOLS.har")
