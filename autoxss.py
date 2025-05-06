@@ -22,3 +22,4 @@ js_contents = js_contents.replace("putindex.jscontentshere", index_js_b64)
 # Save the modified xss.js
 with open("autoxss.js", "w", encoding="utf-8") as f:
     f.write(js_contents)
+print("The output should now be saved at autoxss.js")
