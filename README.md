@@ -12,6 +12,8 @@
 &nbsp;&nbsp;&nbsp;&nbsp;**^^^ you may need to expand the sidebar to see it ^^^**\
 **7. Double click on the text that appears in the box**
 
+## Creating your own payloads
+If you are intrested in creating your own payload, head over to [the generator](https://example.com).
 ## Credits
  - Crossjbly: Finding the vulnerability in .har files
  - Blobby Boi: Helping with development of the payloads and UI
