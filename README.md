@@ -3,9 +3,9 @@
 
 ## How to use
 **1. Download [HARTOOLS.har](https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/HARTOOLS.har)**\
-**2. Get the file `HARTOOLS.har` onto the device you want to run devtools xss on**\
-**3. On the device you want to run devtools xss on go to `devtools://devtools/bundled/inspector.html` and keep the tab open**\
-**4. Open a new tab and go to `devtools://devtools/bundled/inspector.html?experiments=true`**\
+**2. Get the file `HARTOOLS.har` onto the device you want to run the devtools XSS on**\
+**3. On the device you want to run the devtools XSS on go to `devtools://devtools/bundled/inspector.html`**\
+**4. Once it loads, add `?experiments=true` to the end of the URL**\
 **5. On the sidebar on the inspector page at the top click the 2 arrows (looks like: `>>`) and select network from the dropdown**\
 &nbsp;&nbsp;&nbsp;&nbsp;**^^^ if you are already on the network page you can skip this ^^^**\
 **6. Click the little upload button and select the downloaded `HARTOOLS.HAR`**\
