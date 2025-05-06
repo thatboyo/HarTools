@@ -12,8 +12,15 @@
 &nbsp;&nbsp;&nbsp;&nbsp;**^^^ you may need to expand the sidebar to see it ^^^**\
 **7. Double click on the text that appears in the box**
 
+***if `devtools://devtools/bundled/inspector.html` is blocked for you:***
+&nbsp;&nbsp;&nbsp;&nbsp;**substitute inspector.html with any of the following:***
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`js_app.html`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`devtools_app.html`
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;`worker_app.html`
+
 ## Creating your own payloads
 If you are intrested in creating your own payload, head over to [the generator](https://skiovox125.vercel.app/hartools/generator.html)
+
 ## Credits
  - Crossjbly: Finding the vulnerability in .har files
  - Blobby Boi: Helping with development of the payloads and UI
@@ -23,4 +30,3 @@ If you are intrested in creating your own payload, head over to [the generator](
 ## NOTES:
  - This has been patched by google as of Chrome V133
  - This will work without internet because everything is included in the main payload ran
- - If `devtools://devtools/bundled/inspector.html` is blocked for you you **can** use `devtools://devtools/bundled/devtools_app.html` (although that's even more commonly blocked)
