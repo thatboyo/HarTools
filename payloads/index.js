@@ -1402,13 +1402,14 @@ dialog h1 {
 }
 
 whitebuttons button {
-  background-color: white;
-  border: none;
-  color: black;
+  background-color: transparent;
+  border: 2px solid rgb(168, 199, 250);
+  color: rgb(4, 125, 183);
 }
 
 whitebuttons button:hover {
-  background-color: #e2e2e2;
+  background-color: rgba(168, 199, 250, 0.1);
+  color: rgb(168, 199, 250);
 }
 
 litstuff {
