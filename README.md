@@ -28,6 +28,7 @@
  - Crossjbly: Finding the vulnerability in .har files
  - Blobby Boi: Helping with development of the payloads and UI
  - axqmx: Testing and help with development
+ - toaster: toasting and sharing this
  - HarryJarry1: Creating autoxss and with helping development
  - unretained: Original rigtools developer tools code execution exploit (this literally wouldn't have been possible without rigtools lol)
 
