@@ -127,8 +127,7 @@ const managementTemplate = `
   <div class="header">
     <img src="https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/hartools.gif" alt="HarTools Logo" class="logo" />
     <h1> chrome.management Disable Extensions </h1>
-  </div>
-  <p class="description">GitHub repo: https://github.com/crossjbly/HarTools/ <br> XSS found by <a href="https://crossjbly.pages.dev/">crossjbly</a> <br> UI made by <a href="https://github.com/Blobby-Boi/">Blobby Boi</a><br></p><hr>
+  </div><hr>
   <whitebuttons>
   <button id="current-extension">Disable injected extension</button>
   <button id="rmv-cmn-blt">Remove Bloat</button>
