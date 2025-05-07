@@ -32,5 +32,8 @@
  - unretained: Original rigtools developer tools code execution exploit (this literally wouldn't have been possible without rigtools lol)
 
 ## NOTES:
- - This has been patched by google as of Chrome V133
+ - This has been patched by google as of Chrome V133, Only specific versions of 132 work, if it **does** work for you ping me in either [the Titanium Network discord server (in #kajigs-discussion)](https://discord.gg/unblock) or directly on discord (@crossjbly)
  - This will work without internet because everything is included in the main payload ran
+
+
+If you post this anywhere other than [Titanium Network](https://discord.gg/unblock) please give proper credits and link this repo.
