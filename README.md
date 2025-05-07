@@ -21,7 +21,7 @@
 ## Creating your own payloads
 - Clone the repo using ``git clone https://github.com/crossjbly/HarTools.git``, then cd into the directory using ``cd HarTools``
 - Make any changes you want to the html, or js files
-- Run [autoxss.py](https://github.com/crossjbly/HarTools/blob/main/autoxss.py) with python
+- Run [autoxss.py](https://github.com/crossjbly/HarTools/blob/main/autoxss.py) with ``python autoxss.py``
 - Head over to, [the generator](https://skiovox125.vercel.app/hartools/generator.html) and paste the contents of autoxss.js (if vercel.app is blocked or this is down use the [data page url](https://raw.githubusercontent.com/crossjbly/HarTools/refs/heads/main/generator-datapage.txt))
 
 ## Credits
