@@ -1,8 +1,8 @@
-<p align=center><img src="https://raw.githubusercontent.com/crossjbly/HarTools/refs/heads/main/hartools.gif"/>
+![image](https://github.com/user-attachments/assets/5abb0bfa-23de-446a-9de7-78bdb23193e2)<p align=center><img src="https://raw.githubusercontent.com/crossjbly/HarTools/refs/heads/main/hartools.gif"/>
 <p align=center><code>Extension/Devtools code execution post-rigtools patch (<133)</code></p> 
 
 ## How to use
-**1. Download [HARTOOLS.har](https://github.com/thatboyo/HarTools/releases/tag/hartools)**\
+**1. Download [HARTOOLS.har]([https://github.com/thatboyo/HarTools/releases/tag/hartools)](https://github.com/crossjbly/HarTools/releases/download/latest/HARTOOLS.har)**\
 **2. Get the file `HARTOOLS.har` onto the device you want to run the devtools XSS on**\
 **3. On the device you want to run the devtools XSS on go to `devtools://devtools/bundled/inspector.html`**\
 **4. Once it loads, add `?experiments=true` to the end of the URL**\
