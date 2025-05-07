@@ -28,7 +28,7 @@ If you are intrested in creating your own payload, modify the html files as you 
  - Crossjbly: Finding the vulnerability in .har files
  - Blobby Boi: Helping with development of the payloads and UI
  - axqmx: Testing and help with development
- - HarryJarry1: Creating autoxss and with development
+ - HarryJarry1: Creating autoxss and with helping development
  - unretained: Original rigtools developer tools code execution exploit (this literally wouldn't have been possible without rigtools lol)
 
 ## NOTES:
