@@ -20,6 +20,7 @@
 
 ## Creating your own payloads
 If you are intrested in creating your own payload, modify the html files as you please, then
+- Clone the repo using ``git clone https://github.com/crossjbly/HarTools.git``
 - Run [autoxss.py](https://github.com/crossjbly/HarTools-rigtools128plus/blob/main/autoxss.py) with python
 - Head over to, [the generator](https://skiovox125.vercel.app/hartools/generator.html) and paste the contents of autoxss.js (if vercel.app is blocked or this is down use the [data page url](https://raw.githubusercontent.com/crossjbly/HarTools-rigtools128plus/refs/heads/main/generator-datapage.txt))
 
