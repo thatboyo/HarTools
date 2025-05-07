@@ -5,57 +5,89 @@
   <title>Devtools .har XSS Generator</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       margin: 40px;
-      background-color: black;
-      color: white;
+      background-color: #f4f4f4;
+      color: #222;
     }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    a {
+      color: #007acc;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
     textarea {
       width: 100%;
       max-width: 800px;
       margin-bottom: 10px;
-      outline: 2px solid white;
-      background-color: black;
-      color: white;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      background-color: white;
+      color: #333;
+      font-family: monospace;
     }
+
     button {
       padding: 10px 20px;
       font-size: 16px;
+      background-color: #007acc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      transition: background-color 0.2s ease;
       cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #005fa3;
+    }
+
+    p {
+      max-width: 800px;
     }
   </style>
 </head>
 <body>
   <h1>Devtools .har XSS Generator</h1>
-  <p>XSS found by crossjbly, site by Blobby Boi. IF ANYONE ELSE CLAIMS THEY MADE THIS SITE, THEY DIDN'T!!!!</p>
-  <p>Please refer to the <a href='https://github.com/crossjbly/HarTools/blob/main/README.md'>README.md</a> file on our GitHub repo.</p>
+  <p><strong>XSS found by crossjbly, site by Blobby Boi.</strong><br>
+  If anyone else claims they made this site, they didn't!</p>
+  <p>Please refer to the <a href="https://github.com/crossjbly/HarTools/blob/main/README.md">README.md</a> on GitHub.</p>
 
   <textarea id="jsInput" placeholder="Enter JavaScript code here" rows="10" cols="80"></textarea><br>
   <button onclick="generateHar()">Generate .har file</button>
 
   <script>
-  function generateHar() {
-    const inputCode = document.getElementById('jsInput').value.trim();
-    if (!inputCode) {
-      alert('Bro didnt type any code');
-      return;
-    }
+    function generateHar() {
+      const inputCode = document.getElementById('jsInput').value.trim();
+      if (!inputCode) {
+        alert('Bro didn’t type any code');
+        return;
+      }
 
-    const now = new Date();
-    const nowISOString = now.toISOString();
-    const base64Code = btoa(inputCode);
+      const now = new Date();
+      const nowISOString = now.toISOString();
+      const base64Code = btoa(inputCode);
 
-    const bookmarkletUrl = `javascript: (function() {eval(atob(\"${base64Code}\"))})()`;
+      const bookmarkletUrl = `javascript: (function() {eval(atob(\"${base64Code}\"))})()`;
 
-    const har = {
-      log: {
-        version: "1.2",
-        creator: {
-          name: "WebInspector",
-          version: "537.36"
-        },
-        pages: [
-          {
+      const har = {
+        log: {
+          version: "1.2",
+          creator: {
+            name: "WebInspector",
+            version: "537.36"
+          },
+          pages: [{
             startedDateTime: nowISOString,
             id: "page_1",
             title: bookmarkletUrl,
@@ -63,23 +95,19 @@
               onContentLoad: 57.19,
               onLoad: 57.77
             }
-          }
-        ],
-        entries: [
-          {
+          }],
+          entries: [{
             _connectionId: "16771",
             _initiator: {
               type: "script",
               stack: {
-                callFrames: [
-                  {
-                    functionName: "",
-                    scriptId: "9",
-                    url: "",
-                    lineNumber: 11,
-                    columnNumber: 4
-                  }
-                ]
+                callFrames: [{
+                  functionName: "",
+                  scriptId: "9",
+                  url: "",
+                  lineNumber: 11,
+                  columnNumber: 4
+                }]
               }
             },
             _priority: "High",
@@ -134,25 +162,23 @@
               receive: 50,
               _blocked_queueing: 0
             }
-          }
-        ]
-      }
-    };
+          }]
+        }
+      };
 
-    const blob = new Blob([JSON.stringify(har, null, 2)], { type: "application/json" });
-    const a = document.createElement('a');
-    a.href = URL.createObjectURL(blob);
-    const month = String(now.getMonth() + 1).padStart(2, '0');
-    const day = String(now.getDate()).padStart(2, '0');
-    const year = now.getFullYear();
-    const unixTimestamp = Math.floor(now.getTime() / 1000);
-    const formatted_file_name = `${month}${day}${year}_${unixTimestamp}`;
-    console.log("FormattedfileName" + formatted_file_name);
-    a.download = "HarTools-" + formatted_file_name + '-script.har';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  }
+      const blob = new Blob([JSON.stringify(har, null, 2)], { type: "application/json" });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const year = now.getFullYear();
+      const unixTimestamp = Math.floor(now.getTime() / 1000);
+      const formatted_file_name = `${month}${day}${year}_${unixTimestamp}`;
+      a.download = "HarTools-" + formatted_file_name + '-script.har';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
   </script>
 </body>
 </html>
