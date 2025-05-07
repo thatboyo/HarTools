@@ -36,4 +36,4 @@
  - This will work without internet because everything is included in the main payload ran
 
 
-If you post this anywhere other than [Titanium Network](https://discord.gg/unblock) please give proper credits and link this repo.
+If you post this anywhere other than [Titanium Network](https://discord.gg/unblock) please give proper credits and link this repo, and please don't post this on ext-remover.
